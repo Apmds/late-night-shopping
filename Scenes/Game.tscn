@@ -1,0 +1,261 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Assets/Game/Cart.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sound effects/crumple-03-40747.wav" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/Present_list.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Timer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Fonts/GOODDP__.TTF" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/Game/Shelf.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Game/Sign.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Buttons/Menu_button_hover.tres" type="StyleBox" id=9]
+[ext_resource path="res://Assets/Buttons/Menu_button.tres" type="StyleBox" id=10]
+[ext_resource path="res://Assets/Buttons/Menu_button_pressed.tres" type="StyleBox" id=11]
+[ext_resource path="res://Scenes/Present.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Sound effects/Alarm Clock Sound.wav" type="AudioStream" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="BG" type="ColorRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0.752941, 0.74902, 0.603922, 1 )
+
+[node name="Present_list" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1007, 322 )
+
+[node name="Timer" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1074, 26 )
+
+[node name="Shelf" type="TextureRect" parent="."]
+margin_left = 240.0
+margin_right = 990.0
+margin_bottom = 600.0
+texture = ExtResource( 7 )
+
+[node name="Sign" type="TextureRect" parent="."]
+margin_left = 11.0
+margin_top = 340.0
+margin_right = 231.0
+margin_bottom = 630.0
+texture = ExtResource( 8 )
+
+[node name="Text" type="Label" parent="Sign"]
+margin_left = 16.0
+margin_top = 112.0
+margin_right = 202.0
+margin_bottom = 144.0
+rect_rotation = -14.1
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Last minute gifts!"
+align = 1
+valign = 1
+
+[node name="Cart" type="TextureRect" parent="."]
+margin_left = 337.0
+margin_top = 567.0
+margin_right = 897.0
+margin_bottom = 720.0
+rect_pivot_offset = Vector2( 280, 76 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+
+[node name="Points" type="Label" parent="."]
+margin_left = 1009.0
+margin_top = 260.0
+margin_right = 1217.0
+margin_bottom = 295.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Presents wrapped:"
+valign = 1
+
+[node name="Reset_button" type="Button" parent="."]
+margin_left = 1051.0
+margin_top = 167.0
+margin_right = 1254.0
+margin_bottom = 243.0
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = ExtResource( 10 )
+text = "reset current present"
+
+[node name="Presents" type="Node2D" parent="."]
+
+[node name="Lego0" parent="Presents" instance=ExtResource( 12 )]
+rect_scale = Vector2( 0.85, 0.85 )
+initial_position = Vector2( 305, 336 )
+
+[node name="Lego1" parent="Presents" instance=ExtResource( 12 )]
+rect_scale = Vector2( 0.85, 0.85 )
+type = 1
+initial_position = Vector2( 476, 336 )
+
+[node name="Lego2" parent="Presents" instance=ExtResource( 12 )]
+rect_scale = Vector2( 0.85, 0.85 )
+type = 2
+initial_position = Vector2( 630, 336 )
+
+[node name="Lego3" parent="Presents" instance=ExtResource( 12 )]
+rect_scale = Vector2( 0.85, 0.85 )
+type = 3
+initial_position = Vector2( 790, 336 )
+
+[node name="Console0" parent="Presents" instance=ExtResource( 12 )]
+category = 3
+initial_position = Vector2( 292, 453 )
+
+[node name="Console1" parent="Presents" instance=ExtResource( 12 )]
+category = 3
+initial_position = Vector2( 455, 453 )
+
+[node name="Console2" parent="Presents" instance=ExtResource( 12 )]
+category = 3
+type = 1
+initial_position = Vector2( 618, 453 )
+
+[node name="Console3" parent="Presents" instance=ExtResource( 12 )]
+category = 3
+type = 1
+initial_position = Vector2( 780, 453 )
+
+[node name="Figure0" parent="Presents" instance=ExtResource( 12 )]
+category = 1
+type = 2
+initial_position = Vector2( 330, 5 )
+
+[node name="Figure1" parent="Presents" instance=ExtResource( 12 )]
+category = 1
+type = 3
+initial_position = Vector2( 430, 5 )
+
+[node name="Figure2" parent="Presents" instance=ExtResource( 12 )]
+category = 1
+initial_position = Vector2( 530, 5 )
+
+[node name="Figure3" parent="Presents" instance=ExtResource( 12 )]
+category = 1
+type = 1
+initial_position = Vector2( 630, 5 )
+
+[node name="Figure4" parent="Presents" instance=ExtResource( 12 )]
+category = 1
+type = 3
+initial_position = Vector2( 730, 5 )
+
+[node name="Figure5" parent="Presents" instance=ExtResource( 12 )]
+category = 1
+type = 2
+initial_position = Vector2( 830, 5 )
+
+[node name="Book0" parent="Presents" instance=ExtResource( 12 )]
+category = 4
+initial_position = Vector2( 310, 119 )
+
+[node name="Book1" parent="Presents" instance=ExtResource( 12 )]
+category = 4
+type = 1
+initial_position = Vector2( 390, 119 )
+
+[node name="Book2" parent="Presents" instance=ExtResource( 12 )]
+category = 4
+type = 2
+initial_position = Vector2( 460, 119 )
+
+[node name="Book3" parent="Presents" instance=ExtResource( 12 )]
+category = 4
+type = 3
+initial_position = Vector2( 543, 119 )
+
+[node name="Book4" parent="Presents" instance=ExtResource( 12 )]
+category = 4
+type = 3
+initial_position = Vector2( 620, 119 )
+
+[node name="Book5" parent="Presents" instance=ExtResource( 12 )]
+category = 4
+type = 2
+initial_position = Vector2( 700, 119 )
+
+[node name="Book6" parent="Presents" instance=ExtResource( 12 )]
+category = 4
+type = 1
+initial_position = Vector2( 780, 119 )
+
+[node name="Book7" parent="Presents" instance=ExtResource( 12 )]
+category = 4
+initial_position = Vector2( 860, 119 )
+
+[node name="Game0" parent="Presents" instance=ExtResource( 12 )]
+category = 2
+initial_position = Vector2( 310, 231 )
+
+[node name="Game1" parent="Presents" instance=ExtResource( 12 )]
+category = 2
+type = 1
+initial_position = Vector2( 390, 231 )
+
+[node name="Game2" parent="Presents" instance=ExtResource( 12 )]
+category = 2
+type = 2
+initial_position = Vector2( 460, 231 )
+
+[node name="Game3" parent="Presents" instance=ExtResource( 12 )]
+category = 2
+type = 3
+initial_position = Vector2( 543, 231 )
+
+[node name="Game4" parent="Presents" instance=ExtResource( 12 )]
+category = 2
+type = 3
+initial_position = Vector2( 620, 231 )
+
+[node name="Game5" parent="Presents" instance=ExtResource( 12 )]
+category = 2
+type = 2
+initial_position = Vector2( 700, 231 )
+
+[node name="Game6" parent="Presents" instance=ExtResource( 12 )]
+category = 2
+type = 1
+initial_position = Vector2( 780, 231 )
+
+[node name="Game7" parent="Presents" instance=ExtResource( 12 )]
+category = 2
+initial_position = Vector2( 860, 231 )
+
+[node name="Cart_presents" type="Node2D" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="Reset_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "Sound effects"
+
+[node name="End_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -30.0
+bus = "Sound effects"
+
+[connection signal="pressed" from="Reset_button" to="." method="_on_Reset_button_pressed"]

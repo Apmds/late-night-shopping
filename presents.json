@@ -1,0 +1,8 @@
+{
+"presents": ["logo set", "action figure", "game", "game console", "book"],
+"logo set": ["Star Battles", "Ninjas", "City", "Mairo"],
+"action figure": ["Goku", "Naruto", "Superman", "Flash"],
+"game": ["Legend of Link", "Polygonal Quest", "Card Tanks", "Sonky"],
+"game console": ["Nontendo", "Gameplace"],
+"book": ["Barry Potter", "Detective", "Horror", "Jokes"]
+}
